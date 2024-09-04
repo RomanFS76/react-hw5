@@ -31,8 +31,6 @@ const MovieCast = () => {
     fetchData();
   }, [movieId]);
 
-  console.log(cast);
-
   return (
     <>
       {loading && <p>Loading.....</p>}
@@ -61,6 +59,7 @@ const MovieCast = () => {
                 </div>
               </li>
             );
+            QA;
           })}
         </ul>
       </div>

@@ -1,22 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getSearchApi } from "../../api/TMDB-api";
+import MovieList from "../../components/MovieList/MovieList";
+
+import SearchForm from "../../components/SearchForm/searchForm";
 
 const MoviesPage = () => {
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState([]);
   const [params, setParams] = useSearchParams();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
   const query = params.get("query");
+  setParams(query);
+  console.log(query);
 
   useEffect(() => {
+  
+    if (!query) {
+      return;
+    }
     const fetchData = async () => {
       try {
         setLoading(true);
         setError(false);
-        const response = getSearchApi(query);
-
+        const response = await getSearchApi(query);
+        console.log(response);
         setSearch(response);
       } catch (error) {
         setError(true);
@@ -26,24 +35,14 @@ const MoviesPage = () => {
     };
     fetchData();
   }, [params]);
-
-  console.log(search);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    setParams({ query: form.elements.valueInput.value });
-
-    form.reset;
-  };
-
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="valueInput" placeholder="Search movie..." />
-        <button type="submit">Search</button>
-      </form>
-      {/* {search.length > 0 && <p>Hello</p>} */}
+      <SearchForm/>
+      {loading && <p>Loading.....</p>}
+      {error && (
+        <p>Oops, something went wrong! Please try reloading this page!</p>
+      )}
+      {search.length > 0 && <MovieList movies={search}/>}
     </>
   );
 };

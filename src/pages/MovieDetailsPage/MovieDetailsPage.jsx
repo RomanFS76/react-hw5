@@ -6,6 +6,8 @@ import css from "./MovieDetailsPage.module.css";
 const imgURL = "https://image.tmdb.org/t/p/";
 const imgSize = "w500";
 
+const defaultImg = "https://www.interactive.org/images/games_developers/no_image_available_sm.jpg";
+
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [details, setDetails] = useState({});
@@ -37,12 +39,13 @@ const MovieDetailsPage = () => {
         )}
         <div className={css.detailsWrap}>
           <img
-            src={`${imgURL}${imgSize}${details.poster_path}`}
+            src={details.poster_path ?`${imgURL}${imgSize}${details.poster_path}`: defaultImg} 
             alt={details.original_title}
-          />
+            width="500"
+            height="750"/>
           <div>
             <p className={css.movieTitle}>{details.original_title}</p>
-            <p>Raiting: {details.vote_average * 10}%</p>
+            <p>Raiting: {details.vote_average*10}%</p>
             <p className={css.overview}>Overview</p>
             <p>{details.overview}</p>
             <p className={css.genreTitle}>Genres</p>

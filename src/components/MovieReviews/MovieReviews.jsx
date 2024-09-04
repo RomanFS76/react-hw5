@@ -25,15 +25,12 @@ const MovieReviews = () => {
     fetchData();
   }, [movieId]);
 
-  console.log(reviews);
-
   return (
     <>
       {loading && <p>Loading.....</p>}
       {error && (
         <p>Oops, something went wrong! Please try reloading this page!</p>
       )}
-
       {reviews.length > 0 ? (
         <ul className={css.reviewsList}>
           {reviews.map((el) => {
