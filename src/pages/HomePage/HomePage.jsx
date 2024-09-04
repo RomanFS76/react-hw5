@@ -24,7 +24,8 @@ const HomePage = () => {
     };
 
     fetchData();
-  }, []);
+  }, []); 
+
 
   return (
     <>

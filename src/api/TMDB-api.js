@@ -20,21 +20,21 @@ const getDetailsApi = async (movieId) => {
 // https:api.themoviedb.org/3/movie/{movie_id}/credits
 
 const getCastApi = async (movieId) => {
-  const  {data}  = await instance.get(`/movie/${movieId}/credits`);
+  const { data } = await instance.get(`/movie/${movieId}/credits`);
 
   return data.cast;
 };
 
 const getReviewsApi = async (movieId) => {
-  const  {data}  = await instance.get(`/movie/${movieId}/reviews`);
+  const { data } = await instance.get(`/movie/${movieId}/reviews`);
 
   return data.results;
 };
 
 const getSearchApi = async (query) => {
-  const  {data}  = await instance.get(`/search/movie`,{params:{query}});
+  const {data} = await instance.get(`/search/movie?query=${query}`);
 
   return data.results;
 };
 
-export { getMovieApi, getDetailsApi, getCastApi,getReviewsApi,getSearchApi };
+export { getMovieApi, getDetailsApi, getCastApi, getReviewsApi, getSearchApi };

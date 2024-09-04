@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, Outlet, useParams } from "react-router-dom";
 import { getDetailsApi } from "../../api/TMDB-api";
 import css from "./MovieDetailsPage.module.css";
-import MovieCast from "../../components/MovieCast/MovieCast";
-import MovieReviews from "../../components/MovieReviews/MovieReviews";
 
 const imgURL = "https://image.tmdb.org/t/p/";
 const imgSize = "w500";
@@ -33,7 +31,7 @@ const MovieDetailsPage = () => {
   return (
     <>
       <div className={css.details}>
-        <p className={css.loading}>{loading && <p>Loading.....</p>}</p>
+        {loading && <p>Loading.....</p>}
         {error && (
           <p>Oops, something went wrong! Please try reloading this page!</p>
         )}
