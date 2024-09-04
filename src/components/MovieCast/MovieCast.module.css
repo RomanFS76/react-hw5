@@ -1,0 +1,19 @@
+.actorWrap {
+    padding: 20px 0;
+}
+
+
+.actorList {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.actorItem {
+    display: flex;
+    gap: 20px;
+}
+
+.actorInfo p {
+    font-size: 25px;
+}

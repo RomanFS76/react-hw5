@@ -1,0 +1,46 @@
+.detailsWrap {
+    display: flex;
+    gap: 20px;
+}
+
+.details{
+    padding-top: 30px;
+    margin-bottom: 40px;
+}
+
+.loading {
+    text-align: center;
+}
+.movieTitle {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.overview {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.genreList {
+    display: flex;
+    gap: 15px;
+}
+
+.genreTitle {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.additionalInformation {
+    padding: 20px 0;
+    border-bottom: 2px solid black;
+}
+
+.additionalInformation p {
+    font-size: 25px;
+}
+
+.additionalInformation li{
+    font-size: 20px;
+}

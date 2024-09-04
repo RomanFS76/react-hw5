@@ -1,0 +1,16 @@
+.searchForm {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.inpSearch,.btnSearch {
+    width: 400px;
+    height: 50px;
+}
+
+.btnSearch {
+    width: 150px;
+    font-size: 30px;
+    font-weight: 700;
+}
