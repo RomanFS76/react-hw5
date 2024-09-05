@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getSearchApi } from "../../api/TMDB-api";
 import MovieList from "../../components/MovieList/MovieList";
-import SearchForm from "../../components/searchForm/searchForm";
+import SearchForm from "../../components/SearchForm/SearchForm";
 
 
 
