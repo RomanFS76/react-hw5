@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, Outlet, useParams } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { getDetailsApi } from "../../api/TMDB-api";
 import css from "./MovieDetailsPage.module.css";
 
@@ -13,6 +13,10 @@ const MovieDetailsPage = () => {
   const [details, setDetails] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+
+  const location = useLocation();
+  const backLinkRef = useRef(location.state);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,6 +36,7 @@ const MovieDetailsPage = () => {
   }, [movieId]);
   return (
     <>
+      <Link className={css.goBack} to={backLinkRef.current ?? "/movies"}>Go back</Link>
       <div className={css.details}>
         {loading && <p>Loading.....</p>}
         {error && (

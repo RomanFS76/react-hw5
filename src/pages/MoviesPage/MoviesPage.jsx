@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getSearchApi } from "../../api/TMDB-api";
 import MovieList from "../../components/MovieList/MovieList";
+import SearchForm from "../../components/searchForm/searchForm";
 
-import SearchForm from "../../components/SearchForm/searchForm";
+
 
 const MoviesPage = () => {
   const [search, setSearch] = useState([]);
@@ -12,8 +13,7 @@ const MoviesPage = () => {
   const [error, setError] = useState(false);
 
   const query = params.get("query");
-  setParams(query);
-  console.log(query);
+
 
   useEffect(() => {
   
@@ -25,7 +25,6 @@ const MoviesPage = () => {
         setLoading(true);
         setError(false);
         const response = await getSearchApi(query);
-        console.log(response);
         setSearch(response);
       } catch (error) {
         setError(true);

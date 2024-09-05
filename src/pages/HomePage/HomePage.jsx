@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getMovieApi } from "../../api/TMDB-api";
 import css from "./HomePage.module.css";
-
 import MovieList from "../../components/MovieList/MovieList";
+
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -25,7 +25,6 @@ const HomePage = () => {
 
     fetchData();
   }, []); 
-
 
   return (
     <>
